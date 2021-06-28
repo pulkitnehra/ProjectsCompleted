@@ -1,4 +1,4 @@
-# To run this prohect run the command below
+# To run this project run the command below
 <!-- Create admin  -->
 ```
 python manage.py createsuperuser
