@@ -1,6 +1,6 @@
 1. Homepage
 
-![image](https://user-images.githubusercontent.com/65600727/123570286-87c13180-d7e5-11eb-9c73-88fcdeef0dcd.png)
+![image](https://user-images.githubusercontent.com/65600727/123572246-80038c00-d7e9-11eb-9b9e-65cd8da7ae70.png)
 
 2. Admin Dashboard
 ![image](https://user-images.githubusercontent.com/65600727/123571797-9fe68000-d7e8-11eb-8f1c-48a88462f499.png)
