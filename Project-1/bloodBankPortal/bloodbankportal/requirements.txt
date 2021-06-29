@@ -1,0 +1,9 @@
+asgiref==3.2.7
+Django==3.0
+django-widget-tweaks==1.4.8
+ldap3==2.9
+Pillow==8.2.0
+pyasn1==0.4.8
+pydirectory==0.1.15
+pytz==2020.1
+sqlparse==0.3.1
