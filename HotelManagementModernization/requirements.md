@@ -81,19 +81,19 @@ The new system must replicate all existing features:
 ## 6. UI Mockups
 
 ### 6.1 Modern Dashboard
-![Modern Dashboard](/Users/pulkitnehra/.gemini/antigravity/brain/7173d227-0031-44e6-bb1b-96ab44a1bb81/modern_hotel_dashboard_1763830638600.png)
+![Modern Dashboard](images/modern_hotel_dashboard_1763830638600.png)
 
 ### 6.2 Management Analytics View
-![Management Analytics](/Users/pulkitnehra/.gemini/antigravity/brain/7173d227-0031-44e6-bb1b-96ab44a1bb81/management_analytics_view_1763830664934.png)
+![Management Analytics](images/management_analytics_view_1763830664934.png)
 
 ### 6.3 Smart Check-in (LLM Integrated)
-![Smart Check-in](/Users/pulkitnehra/.gemini/antigravity/brain/7173d227-0031-44e6-bb1b-96ab44a1bb81/smart_checkin_screen_1763830689802.png)
+![Smart Check-in](images/smart_checkin_screen_1763830689802.png)
 
 ### 6.4 Reception Room Status Grid
-![Room Status Grid](/Users/pulkitnehra/.gemini/antigravity/brain/7173d227-0031-44e6-bb1b-96ab44a1bb81/reception_room_grid_1763831835382.png)
+![Room Status Grid](images/reception_room_grid_1763831835382.png)
 
 ### 6.5 Employee Management
-![Employee Management](/Users/pulkitnehra/.gemini/antigravity/brain/7173d227-0031-44e6-bb1b-96ab44a1bb81/employee_management_screen_1763831856404.png)
+![Employee Management](images/employee_management_screen_1763831856404.png)
 
 ### 6.6 Customer History
-![Customer History](/Users/pulkitnehra/.gemini/antigravity/brain/7173d227-0031-44e6-bb1b-96ab44a1bb81/customer_history_screen_1763831902768.png)
+![Customer History](images/customer_history_screen_1763831902768.png)

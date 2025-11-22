@@ -6,8 +6,8 @@ Modernize the legacy Java Swing Hotel Management System to a cross-platform desk
 ## User Review Required
 > [!IMPORTANT]
 > **Tech Stack Selection**: Recommending **Electron + React** or **Tauri + React** for cross-platform desktop capabilities with a modern web-based UI.
-> **Database**: Recommending **SQLite** (local, zero-config) or **PostgreSQL** (robust, open-source) depending on multi-user needs.
-> **LLM Integration**: Using local LLMs (e.g., Llama 3 via Ollama) or low-cost APIs (Gemini Flash) for cost efficiency.
+> **Database**: Recommending **Supabase (PostgreSQL)**. This solves the requirement for "central data accessed by multiple desktop apps/web/kiosk" without complex sync logic. Free tier is sufficient.
+> **LLM Integration**: Using **Gemini Flash API** (Free Tier) as requested. No local hardware cost.
 
 ## Proposed Changes
 
@@ -16,15 +16,16 @@ Modernize the legacy Java Swing Hotel Management System to a cross-platform desk
 - **UI Framework**: **React** + **TypeScript**.
 - **Backend Logic**: **Node.js** (Embedded in Electron).
   - *Decision*: Using TypeScript for both ends simplifies packaging into a single installer (no Python runtime dependency issues).
-- **Database**: **SQLite** (Local file) with optional Cloud Sync (Supabase/Firebase) for PWA integration.
+- **Database**: **Supabase (PostgreSQL)**.
+  - *Decision*: Since you need the DB to be "central and polled by desktop apps on different machines", a cloud database is essential. SQLite is local-only. Supabase provides a free, easy-to-setup PostgreSQL DB with real-time capabilities (no polling needed).
 
 ### 2. Database Migration
-- Migrate from MySQL to SQLite.
-- Create a sync mechanism for Mobile PWA bookings (e.g., poll a free Firebase Firestore collection for new bookings).
+- Initialize **Supabase** project.
+- Design schema in PostgreSQL.
+- *Benefit*: PWA and Desktop App both connect directly to Supabase. No complex sync logic required.
 
 ### 3. LLM Integration
-- **Customer Patterns**: Analyze booking history to suggest preferences.
-- **Smart Check-in/out**: NLP-based form filling from ID scans or voice input.
+- **Model**: **Gemini Flash API**.
 - **Staff Assistant**: Chat interface for inventory checks and operational queries.
 
 ### 4. Mobile Booking Strategy
@@ -37,4 +38,25 @@ Modernize the legacy Java Swing Hotel Management System to a cross-platform desk
 
 ## Verification Plan
 - **Automated Tests**: Jest/Vitest for logic, Playwright for E2E testing.
-- **Manual Verification**: Compare legacy app screens with new UI.
+- **Automated Tests**: Jest/Vitest for logic, Playwright for E2E testing.
+- **Dry Run**: Perform a complete "Dry Run" of Core Functionality (Auth, Booking, Room Status) before proceeding to Dashboard/LLM tasks.
+
+## UI Mockups
+
+### Modern Dashboard
+![Modern Dashboard](images/modern_hotel_dashboard_1763830638600.png)
+
+### Management Analytics View
+![Management Analytics](images/management_analytics_view_1763830664934.png)
+
+### Smart Check-in (LLM Integrated)
+![Smart Check-in](images/smart_checkin_screen_1763830689802.png)
+
+### Reception Room Status Grid
+![Room Status Grid](images/reception_room_grid_1763831835382.png)
+
+### Employee Management
+![Employee Management](images/employee_management_screen_1763831856404.png)
+
+### Customer History
+![Customer History](images/customer_history_screen_1763831902768.png)
