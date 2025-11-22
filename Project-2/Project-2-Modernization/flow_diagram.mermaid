@@ -1,0 +1,38 @@
+sequenceDiagram
+    participant Guest
+    participant PWA as Mobile PWA
+    participant CloudDB as Cloud DB
+    participant App as Desktop App (Reception)
+    participant LLM as Gemini AI
+    participant LocalDB as SQLite DB
+    participant Housekeeping
+
+    Note over Guest, CloudDB: Booking Phase
+    Guest->>PWA: Searches for Room
+    PWA->>CloudDB: Checks Availability (Synced)
+    PWA->>Guest: Shows Available Rooms
+    Guest->>PWA: Books Room
+    PWA->>CloudDB: Creates Booking Record
+
+    Note over App, LocalDB: Sync Phase
+    App->>CloudDB: Polls for New Bookings
+    CloudDB-->>App: Returns New Booking Data
+    App->>LocalDB: Saves Booking to Local DB
+
+    Note over Guest, App: Check-in Phase
+    Guest->>App: Arrives at Reception / Kiosk
+    App->>App: Scans ID / Passport
+    App->>LLM: Extract Details from ID Image
+    LLM-->>App: Returns JSON (Name, DOB, Address)
+    App->>App: Auto-fills Check-in Form
+    App->>LocalDB: Updates Room Status to "Occupied"
+    App->>Guest: Issues Key Card
+
+    Note over Guest, Housekeeping: Stay & Checkout
+    Guest->>App: Requests Checkout
+    App->>LocalDB: Calculates Bill (Room + Services)
+    App->>Guest: Prints Invoice
+    App->>LocalDB: Updates Room Status to "Dirty"
+    App->>Housekeeping: Notifies "Room 101 Needs Cleaning"
+    Housekeeping->>App: Marks Room "Clean" (after cleaning)
+    App->>LocalDB: Updates Room Status to "Available"

@@ -1,0 +1,36 @@
+graph TD
+    subgraph Cloud ["Cloud Infrastructure"]
+        PWA["Mobile Booking PWA (React)"]
+        CloudDB[("Cloud DB (Firebase/Supabase)")]
+        LLM["Gemini Flash API"]
+        
+        PWA -->|"Syncs Bookings"| CloudDB
+    end
+
+    subgraph Hotel ["On-Premise / Hotel Hardware"]
+        subgraph Desktop ["Desktop App (Electron + React + TS)"]
+            UI["User Interface"]
+            Backend["Node.js Backend Process"]
+            LocalDB[("SQLite Database")]
+            
+            UI --> Backend
+            Backend -->|"Read/Write"| LocalDB
+            Backend -->|"Sync Bookings"| CloudDB
+            Backend -->|"AI Queries (RAG)"| LLM
+        end
+
+        subgraph Kiosk ["Self-Service Kiosk"]
+            KioskUI["Kiosk Interface (Electron)"]
+            KioskUI --> Backend
+        end
+    end
+
+    subgraph Users
+        Guest["Guest (Mobile)"]
+        Reception["Reception Staff"]
+        Manager["Manager"]
+    end
+
+    Guest -->|"Books Room"| PWA
+    Reception -->|"Manages Hotel"| UI
+    Manager -->|"Views Analytics"| UI
