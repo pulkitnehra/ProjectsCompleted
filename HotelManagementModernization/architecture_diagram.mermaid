@@ -5,6 +5,7 @@ graph TD
         LLM["Gemini Flash API"]
         
         PWA -->|"Read/Write Bookings"| Supabase
+        LLM -.->|"Context / RAG"| Supabase
     end
 
     subgraph Hotel ["On-Premise / Hotel Hardware"]
